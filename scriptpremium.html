@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Script Premium - XDOO Store</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+
+        :root {
+            --red-candy: #ff0000;
+            --red-dark: #8b0000;
+            --glass: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 0, 0, 0.2);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: #050505;
+            background-image: url('backgroundxdoo.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+        }
+
+        .bg-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at center, rgba(0,0,0,0.8) 0%, #050505 100%);
+            z-index: 1;
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            width: 90%;
+            max-width: 450px;
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        .header-box {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            padding: 25px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.1);
+        }
+
+        .header-box h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.3rem;
+            color: var(--red-candy);
+            text-shadow: 0 0 15px var(--red-candy);
+            margin-top: 10px;
+        }
+
+        /* Script Card Styling */
+        .script-card {
+            background: linear-gradient(145deg, rgba(20,20,20,0.9), rgba(10,10,10,0.95));
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 25px;
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .script-card::before {
+            content: "PREMIUM";
+            position: absolute;
+            top: 15px;
+            right: -30px;
+            background: var(--red-candy);
+            color: white;
+            padding: 5px 40px;
+            transform: rotate(45deg);
+            font-size: 0.6rem;
+            font-weight: bold;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .script-card h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+            color: #fff;
+            margin: 0;
+        }
+
+        .script-tag {
+            font-size: 0.7rem;
+            color: var(--red-candy);
+            letter-spacing: 1px;
+            font-weight: bold;
+        }
+
+        .price-big {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin: 15px 0;
+            font-family: 'Orbitron', sans-serif;
+            color: #fff;
+        }
+
+        .feature-list {
+            margin: 20px 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .feature-list li {
+            font-size: 0.8rem;
+            color: #bbb;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        .feature-list li i {
+            color: var(--red-candy);
+            margin-right: 10px;
+            font-size: 0.9rem;
+        }
+
+        .buy-btn {
+            background: linear-gradient(to right, var(--red-dark), var(--red-candy));
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+            padding: 15px;
+            border-radius: 12px;
+            font-weight: bold;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
+            transition: 0.3s;
+        }
+
+        .buy-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px var(--red-candy);
+        }
+
+        footer { margin-top: 40px; font-size: 0.7rem; color: #555; }
+    </style>
+</head>
+<body>
+    <div class="bg-overlay"></div>
+    <div class="container">
+        <header class="header-box">
+            <i class="fa-solid fa-code" style="color: var(--red-candy); font-size: 2rem;"></i>
+            <h1>SCRIPT BOT PREMIUM</h1>
+            <p style="font-size: 0.75rem; color: #888; margin-top: 5px;">Source Code High Quality & No Error</p>
+        </header>
+
+        <div class="script-card">
+            <span class="script-tag">BEST SELLER</span>
+            <h3>XDOO-MD X Alip ai</h3>
+            <div class="price-big">Rp50.000</div>
+            <ul class="feature-list">
+                <li><i class="fa-solid fa-check-circle"></i> No Encrypt (Full Case)</li>
+                <li><i class="fa-solid fa-check-circle"></i> Pairing Code Support</li>
+                <li><i class="fa-solid fa-check-circle"></i> Auto Download TikTok/FB/IG</li>
+                <li><i class="fa-solid fa-check-circle"></i> Multi Device Support</li>
+                <li><i class="fa-solid fa-check-circle"></i> Fitur AI (OpenAI/Gemini)</li>
+                <li><i class="fa-solid fa-check-circle"></i> Database Aman</li>
+                <li><i class="fa-solid fa-check-circle"></i> 1500+ Fitur Work</li>
+            </ul>
+            <a href="https://wa.me/6282126487243?text=Order+Script+Premium+V1" class="buy-btn">BELI SCRIPT</a>
+        </div>
+
+        <div class="script-card" style="border-color: rgba(255, 255, 255, 0.1);">
+            <span class="script-tag">EASY SETUP</span>
+            <h3>XDOO-MD X Hoshino Assisten</h3>
+            <div class="price-big">Rp50.000</div>
+            <ul class="feature-list">
+                <li><i class="fa-solid fa-check-circle"></i> No Encrypt (Full Case)</li>
+                <li><i class="fa-solid fa-check-circle"></i> Pairing Code Support</li>
+                <li><i class="fa-solid fa-check-circle"></i> Auto Download TikTok/FB/IG</li>
+                <li><i class="fa-solid fa-check-circle"></i> Multi Device Support</li>
+                <li><i class="fa-solid fa-check-circle"></i> Fitur AI (OpenAI/Gemini)</li>
+                <li><i class="fa-solid fa-check-circle"></i> Database Aman</li>
+                <li><i class="fa-solid fa-check-circle"></i> 2000+ Fitur Work</li>
+            </ul>
+            <a href="https://wa.me/6282126487243?text=Order+Script+Push+Kontak" class="buy-btn" style="background: var(--glass); border: 1px solid var(--red-candy);">BELI SCRIPT</a>
+        </div>
+
+        <footer>
+            XDOO-HOSTING © 2025 • DIGITAL PRODUCT<br>
+            Note: Free Update Selama 1 Bulan
+        </footer>
+    </div>
+</body>
+</html>

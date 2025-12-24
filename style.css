@@ -1,0 +1,233 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    color: white;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    /* Menggunakan gambar background yang diupload */
+    background-image: url('backgroundxdoo.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+}
+
+/* Overlay agar background lebih gelap dan teks terbaca */
+.bg-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Kegelapan 70% */
+    z-index: -1;
+}
+
+.container {
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    padding: 50px 20px;
+    z-index: 1;
+}
+
+.profile img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid #ff0000; /* Aksen merah sesuai teks XDOO */
+    object-fit: cover;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+}
+
+.profile h2 {
+    margin-top: 15px;
+    font-size: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+}
+
+.social-icons {
+    margin: 25px 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 1.8rem;
+    transition: 0.3s;
+}
+
+.social-icons a:hover {
+    color: #ff0000;
+    transform: scale(1.2);
+}
+
+.link-btn {
+    display: block;
+    background: rgba(255, 255, 255, 0.9);
+    color: black;
+    text-decoration: none;
+    padding: 15px;
+    border-radius: 15px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    transition: 0.3s;
+    border: 2px solid transparent;
+}
+
+.link-btn:hover {
+    background: #000;
+    color: #fff;
+    border: 2px solid #ff0000;
+}
+
+.banner {
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid #ff0000;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: left;
+    margin-top: 20px;
+}
+
+.banner h4 {
+    margin: 0 0 10px 0;
+    color: #ff0000;
+    text-align: center;
+}
+
+.banner ul {
+    list-style: none;
+    padding: 0;
+    font-size: 0.9rem;
+}
+
+.banner li {
+    margin-bottom: 5px;
+}
+
+footer {
+    margin-top: 40px;
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+/* Styling Khusus Halaman Price */
+.header-shop {
+    text-align: left;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.package-card {
+    background: rgba(30, 35, 45, 0.9); /* Warna gelap kebiruan mirip gambar */
+    border-radius: 12px;
+    padding: 20px;
+    text-align: left;
+    margin-bottom: 20px;
+    border-left: 4px solid transparent;
+    transition: 0.3s;
+}
+
+.package-card:hover {
+    border-left: 4px solid #ff0000;
+    transform: translateX(5px);
+}
+
+.package-card h3 {
+    margin: 0;
+    font-size: 1rem;
+    color: #ffffff;
+    opacity: 0.9;
+}
+
+.price-tag {
+    color: #ff4d4d; /* Warna pink/merah harga */
+    font-size: 1.4rem;
+    margin: 10px 0;
+}
+
+.specs p {
+    margin: 5px 0;
+    font-size: 0.85rem;
+    color: #adb5bd;
+}
+
+.specs i {
+    width: 20px;
+    color: #6c757d;
+}
+
+.desc {
+    font-size: 0.8rem;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 8px;
+    border-radius: 5px;
+    margin-top: 15px;
+    color: #ced4da;
+}
+
+.buy-btn {
+    display: block;
+    text-align: center;
+    background: #ff0000;
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 15px;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+/* Pastikan overlay ada di paling belakang */
+.bg-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: -1 !important; /* WAJIB MINUS AGAR DI BELAKANG */
+    pointer-events: none; /* Agar sentuhan jari menembus overlay ini */
+}
+
+/* Container untuk tombol sejajar */
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 25px; /* Memberi jarak ke bawah agar tidak menempel */
+    position: relative;
+    z-index: 10; /* Memastikan container berada di atas overlay */
+}
+
+/* Pastikan overlay ada di paling belakang */
+.bg-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: -1 !important; /* WAJIB MINUS AGAR DI BELAKANG */
+    pointer-events: none; /* Agar sentuhan jari menembus overlay ini */
+}
+
+/* Pastikan container ada di depan */
+.container {
+    position: relative;
+    z-index: 999; /* Angka besar agar selalu di depan */
+}
+
+/* Tambahkan ini pada tombol agar pasti bisa ditekan */
+.link-btn {
+    position: relative;
+    z-index: 1000 !important;
+    pointer-events: auto !important; /* Memaksa agar bisa menerima klik */
+    cursor: pointer;
+}

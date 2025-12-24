@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Sewa Bot - XDOO</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+
+        :root {
+            --red-candy: #ff0000;
+            --red-dark: #8b0000;
+            --glass: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 0, 0, 0.2);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: #050505;
+            background-image: url('backgroundxdoo.png'); /* Menggunakan background asli kamu */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            overflow-x: hidden;
+        }
+
+        /* Overlay Gelap Elegan */
+        .bg-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at center, rgba(0,0,0,0.6) 0%, #050505 100%);
+            z-index: 1;
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            width: 90%;
+            max-width: 420px;
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        /* Header Styling */
+        header h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+            color: var(--red-candy);
+            text-shadow: 0 0 15px var(--red-candy);
+            margin-bottom: 5px;
+        }
+
+        .badge-premium {
+            background: linear-gradient(45deg, var(--red-dark), var(--red-candy));
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            font-weight: bold;
+            box-shadow: 0 0 10px rgba(255,0,0,0.4);
+        }
+
+        /* Card Harga Glassmorphism */
+        .price-list { margin-top: 30px; }
+
+        .item {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            padding: 18px 25px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.4s ease;
+        }
+
+        .item:hover {
+            border-color: var(--red-candy);
+            background: rgba(255, 0, 0, 0.05);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255,0,0,0.1);
+        }
+
+        .info h3 { margin: 0; font-size: 0.95rem; opacity: 0.9; text-align: left; }
+        .info p { margin: 0; font-size: 0.7rem; color: #aaa; text-align: left; }
+
+        .price {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: bold;
+            color: #fff;
+            font-size: 1.1rem;
+            text-shadow: 0 0 10px rgba(255,255,255,0.2);
+        }
+
+        /* Features Section */
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin: 30px 0;
+            text-align: left;
+        }
+
+        .feat-item {
+            font-size: 0.75rem;
+            color: #ddd;
+            background: rgba(255,255,255,0.02);
+            padding: 8px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        .feat-item i { color: var(--red-candy); margin-right: 8px; font-size: 0.8rem; }
+
+        /* Button Red Candy Glow */
+        .cta-btn {
+            background: linear-gradient(to right, var(--red-dark), var(--red-candy));
+            color: #fff;
+            text-decoration: none;
+            padding: 18px;
+            border-radius: 15px;
+            display: block;
+            font-weight: bold;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-btn:hover {
+            box-shadow: 0 0 35px var(--red-candy);
+            transform: scale(1.02);
+        }
+
+        footer { margin-top: 40px; font-size: 0.65rem; color: #666; letter-spacing: 1px; }
+    </style>
+</head>
+<body>
+    <div class="bg-overlay"></div>
+    <div class="container">
+        <header>
+            <span class="badge-premium">Special Offer</span>
+            <h1>XDOO STORE</h1>
+            <p style="font-size: 0.8rem; color: #888;">Bot WhatsApp Berkecepatan Tinggi & Stabil, Lebih Dari 1500+ Fitur Work</p>
+        </header>
+
+        <div class="price-list">
+            <div class="item">
+                <div class="info">
+                    <h3>1 MINGGU</h3>
+                    <p>Paket Trial Bot</p>
+                </div>
+                <div class="price">Rp3.000</div>
+            </div>
+
+            <div class="item">
+                <div class="info">
+                    <h3>1 BULAN</h3>
+                    <p>Paket Standar</p>
+                </div>
+                <div class="price">Rp5.000</div>
+            </div>
+
+            <div class="item">
+                <div class="info">
+                    <h3>1 BULAN PREMIUM</h3>
+                    <p>Bonus +1 User Premium</p>
+                </div>
+                <div class="price">Rp8.000</div>
+            </div>
+
+            <div class="item">
+                <div class="info">
+                    <h3>VVIP ACCESS</h3>
+                    <p>1 Bulan + 3 User Premium</p>
+                </div>
+                <div class="price">Rp10.000</div>
+            </div>
+        </div>
+
+        <div class="features-grid">
+            <div class="feat-item"><i class="fa-solid fa-bolt"></i> Fast Response</div>
+            <div class="feat-item"><i class="fa-solid fa-shield"></i> Group Menu</div>
+            <div class="feat-item"><i class="fa-solid fa-robot"></i> Auto AI</div>
+            <div class="feat-item"><i class="fa-solid fa-clock"></i> 24/7 Online</div>
+            <div class="feat-item"><i class="fa-solid fa-image"></i> Sticker Menu</div>
+            <div class="feat-item"><i class="fa-solid fa-lock"></i> Privacy Safe</div>
+        </div>
+
+        <a href="https://wa.me/6282126487243" class="cta-btn" target="_blank">
+            ORDER VIA WHATSAPP
+        </a>
+
+        <footer>
+            MADE BY XDOO-HOSTING © 2025<br>
+            DANA • GOPAY • QRIS
+        </footer>
+    </div>
+</body>
+</html>
