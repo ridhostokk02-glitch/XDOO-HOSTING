@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Script Free - XDOO Store</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
 
         :root {
-            --red-candy: #ff0000;
-            --red-dark: #8b0000;
+            --red-neon: #ff3333;
+            --red-glow: rgba(255, 0, 0, 0.5);
             --glass: rgba(255, 255, 255, 0.03);
             --glass-border: rgba(255, 0, 0, 0.2);
         }
@@ -27,6 +27,7 @@
             color: #fff;
             display: flex;
             justify-content: center;
+            overflow-x: hidden;
         }
 
         .bg-overlay {
@@ -39,9 +40,9 @@
         .container {
             position: relative;
             z-index: 2;
-            width: 90%;
+            width: 100%;
             max-width: 450px;
-            padding: 50px 0;
+            padding: 30px 0;
             text-align: center;
         }
 
@@ -49,136 +50,160 @@
             background: var(--glass);
             backdrop-filter: blur(10px);
             border: 1px solid var(--glass-border);
-            padding: 20px;
-            border-radius: 20px;
-            margin-bottom: 30px;
+            padding: 15px;
+            border-radius: 18px;
+            margin: 0 20px 20px 20px;
+            box-shadow: 0 0 10px var(--red-glow);
         }
 
         .header-shop h1 {
             font-family: 'Orbitron', sans-serif;
-            font-size: 1.4rem;
-            color: var(--red-candy);
-            text-shadow: 0 0 15px var(--red-candy);
-            margin: 10px 0 0;
-        }
-
-        /* Penyesuaian gambar di dalam kartu */
-        .sc-image {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            border-radius: 10px;
-            margin-bottom: 15px;
-            border: 1px solid var(--glass-border);
+            font-size: 1.2rem;
+            color: var(--red-neon);
+            text-shadow: 0 0 8px var(--red-neon);
+            margin: 5px 0 0;
         }
 
         .package-list {
             display: flex;
-            flex-direction: column;
-            gap: 15px;
+            flex-direction: row;
+            gap: 12px;
+            overflow-x: auto;
+            padding: 5px 20px 25px;
+            scroll-snap-type: x mandatory; 
+            scrollbar-width: none; 
         }
+
+        .package-list::-webkit-scrollbar { display: none; }
 
         .free-card {
-            background: var(--glass);
-            backdrop-filter: blur(10px);
+            background: rgba(15, 15, 15, 0.85);
+            backdrop-filter: blur(15px);
             border: 1px solid var(--glass-border);
-            border-radius: 15px;
-            padding: 20px;
+            border-radius: 18px;
+            padding: 15px;
             text-align: left;
-            transition: 0.3s;
+            min-width: 280px;
+            height: auto; 
+            display: flex;
+            flex-direction: column;
+            scroll-snap-align: center;
         }
 
-        .free-card:hover {
-            border-color: var(--red-candy);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(255,0,0,0.2);
+        .sc-image {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            border: 1px solid var(--glass-border);
         }
 
         .tag {
-            font-size: 0.65rem;
-            color: var(--red-candy);
+            font-size: 0.55rem;
+            color: var(--red-neon);
             background: rgba(255, 0, 0, 0.1);
             padding: 3px 8px;
             border-radius: 5px;
             font-weight: bold;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
             display: inline-block;
         }
 
         .free-card h3 {
             font-family: 'Orbitron', sans-serif;
-            font-size: 1rem;
+            font-size: 0.95rem;
             margin: 0;
             color: #fff;
-            letter-spacing: 1px;
         }
 
         .free-card p {
-            font-size: 0.75rem;
-            color: #ccc;
-            margin: 12px 0;
-            line-height: 1.5;
+            font-size: 0.68rem;
+            color: #aaa;
+            margin: 5px 0 10px 0;
+            line-height: 1.3;
         }
 
+        /* GRID MENU - DIRAPATKAN */
         .feature-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 8px;
-            margin-bottom: 20px;
-            background: rgba(255, 255, 255, 0.02);
-            padding: 10px;
-            border-radius: 10px;
+            gap: 8px; /* Jarak antar menu lebih kecil */
+            margin-bottom: 15px;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 12px; /* Padding dalam grid dirapatkan */
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .feature-item {
-            font-size: 0.7rem;
-            color: #bbb;
+            font-size: 0.72rem;
+            color: #fff;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px; /* Jarak ikon ke teks diperkecil */
         }
 
         .feature-item i {
-            color: var(--red-candy);
+            color: #ff0000;
+            text-shadow: 0 0 8px #ff0000;
             font-size: 0.8rem;
+            width: 14px;
+            text-align: center;
         }
 
         .buy-btn {
-            background: linear-gradient(to right, var(--red-dark), var(--red-candy));
+            background: linear-gradient(to right, #8b0000, #ff0000);
             color: #fff;
             text-decoration: none;
-            display: block;
-            text-align: center;
-            padding: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 10px;
             border-radius: 10px;
             font-weight: bold;
-            font-size: 0.85rem;
-            transition: 0.3s;
+            font-size: 0.75rem;
+            margin-top: auto;
+            box-shadow: 0 4px 10px rgba(255, 0, 0, 0.2);
+            transition: 0.2s;
         }
 
-        .buy-btn:hover {
-            box-shadow: 0 0 20px var(--red-candy);
+        .buy-btn:active { transform: scale(0.98); }
+
+        .scroll-hint {
+            font-size: 0.6rem;
+            color: #666;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
         }
 
-        footer { margin-top: 40px; font-size: 0.7rem; color: #666; }
+        footer { font-size: 0.65rem; color: #333; margin-top: 10px; }
     </style>
 </head>
 <body>
     <div class="bg-overlay"></div>
     <div class="container">
+        
         <header class="header-shop">
-            <i class="fa-solid fa-gift" style="color: var(--red-candy); font-size: 2rem;"></i>
-            <h1>SCRIPT FREE BOT</h1>
+            <i class="fa-solid fa-fire-flame-curved" style="color: var(--red-neon); font-size: 1.5rem;"></i>
+            <h1>XDOO STORE</h1>
         </header>
+
+        <div class="scroll-hint">
+            <i class="fa-solid fa-angles-left"></i> Geser Produk <i class="fa-solid fa-angles-right"></i>
+        </div>
 
         <div class="package-list">
             
             <div class="free-card">
-                <img src="https://files.catbox.moe/let6z9.jpg" alt="Preview Script" class="sc-image">
-                
-                <span class="tag">NEW VERSION</span>
-                <h3>Furina-MD (4000+ FITUR)</h3>
-                <p>Script bot WhatsApp terbaru yang sangat cocok buat jaga grup. Fitur lengkap dan sangat stabil.</p>
+                <img src="https://files.catbox.moe/let6z9.jpg" class="sc-image">
+                <span class="tag">LEGACY VERSION</span>
+                <h3>Furina-MD V13</h3>
+                <p>Script legendaris yang sangat ringan dan stabil untuk grup WhatsApp Anda, Memiliki 4000+ Fitur.</p>
                 
                 <div class="feature-grid">
                     <div class="feature-item"><i class="fa-solid fa-wrench"></i> Menu Tools</div>
@@ -186,19 +211,31 @@
                     <div class="feature-item"><i class="fa-solid fa-download"></i> Menu Download</div>
                     <div class="feature-item"><i class="fa-solid fa-users-gear"></i> Menu Group</div>
                     <div class="feature-item"><i class="fa-solid fa-user-shield"></i> Menu Owner</div>
-                    <div class="feature-item"><i class="fa-solid fa-microphone"></i> Menu Voice</div>
+                    <div class="feature-item"><i class="fa-solid fa-microchip"></i> Menu System</div>
                 </div>
+                <a href="https://www.mediafire.com/file/68pkalb5aoux231/FURINA_V13.zip/file" class="buy-btn"><i class="fa-solid fa-cloud-arrow-down"></i> DOWNLOAD V13</a>
+            </div>
 
-                <a href="https://www.mediafire.com/file/68pkalb5aoux231/FURINA_V13.zip/file" target="_blank">Download Script</a>
+            <div class="free-card">
+                <img src="https://files.catbox.moe/bc9d7c.jpg" class="sc-image">
+                <span class="tag">HOT SCRIPT</span>
+                <h3>Cantarella-MD</h3>
+                <p>Script dengan 1000+ fitur work dan sistem AI canggih.</p>
+                
+                <div class="feature-grid">
+                    <div class="feature-item"><i class="fa-solid fa-robot"></i> Open AI</div>
+                    <div class="feature-item"><i class="fa-solid fa-shield-cat"></i> Jaga Grup</div>
+                    <div class="feature-item"><i class="fa-solid fa-note-sticky"></i> Brat Stick</div>
+                    <div class="feature-item"><i class="fa-solid fa-server"></i> Create Panel</div>
+                    <div class="feature-item"><i class="fa-solid fa-gamepad"></i> Game Menu</div>
+                    <div class="feature-item"><i class="fa-solid fa-wand-magic-sparkles"></i> 1000+ Fitur</div>
+                </div>
+                <a href="https://www.mediafire.com/file/cczr5he8kf2zt8d/Cantarella_Reactch_%252B_SWGRUP_No_ENC.zip/file" class="buy-btn"><i class="fa-solid fa-bolt"></i> GET CANTARELLA</a>
             </div>
 
         </div>
 
-        <footer>
-            XDOO-HOSTING ©️ 2025 • TERPERCAYA & MURAH
-        </footer>
+        <footer>XDOO-HOSTING ©️ 2025</footer>
     </div>
 </body>
 </html>
-
-
