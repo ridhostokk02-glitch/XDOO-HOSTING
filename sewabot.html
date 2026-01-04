@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Sewa Bot - XDOO</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+
+        :root {
+            --red-main: #ff0000;
+            --glass-bg: rgba(20, 20, 20, 0.7);
+            --glass-border: rgba(255, 0, 0, 0.15);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: #050505;
+            background-image: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('backgroundxdoo.png');
+            background-size: cover;
+            background-attachment: fixed;
+            color: #ccc;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            width: 95%;
+            max-width: 1100px;
+            padding: 40px 0;
+        }
+
+        .header-shop {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .badge-premium {
+            background: var(--red-main);
+            color: #fff;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.65rem;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: bold;
+        }
+
+        .header-shop h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            color: #fff;
+            letter-spacing: 4px;
+            margin: 15px 0 10px;
+            text-transform: uppercase;
+        }
+
+        .header-underline {
+            width: 60px;
+            height: 3px;
+            background: var(--red-main);
+            margin: 0 auto 20px;
+        }
+
+        .package-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .package-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 25px;
+            transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .package-card:hover {
+            border-color: var(--red-main);
+            background: rgba(30, 0, 0, 0.4);
+            transform: translateY(-5px);
+        }
+
+        .package-card h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            margin: 0;
+            color: #fff;
+        }
+
+        .price-tag {
+            color: var(--red-main);
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin: 10px 0;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .mini-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin: 15px 0 25px;
+        }
+
+        .feat-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 8px;
+            border-radius: 6px;
+            font-size: 0.65rem;
+            display: flex;
+            align-items: center;
+            color: #aaa;
+        }
+
+        .feat-box i {
+            color: var(--red-main);
+            margin-right: 6px;
+            font-size: 0.75rem;
+            width: 12px;
+            text-align: center;
+        }
+
+        .buy-btn {
+            background: var(--red-main);
+            border: 1px solid var(--red-main);
+            color: #fff;
+            text-decoration: none;
+            text-align: center;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            transition: 0.3s;
+            text-transform: uppercase;
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
+        }
+
+        .buy-btn:hover {
+            background: transparent;
+            color: var(--red-main);
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+        }
+
+        .vvip-card {
+            border-color: rgba(255, 0, 0, 0.5);
+            background: rgba(255, 0, 0, 0.05);
+        }
+
+        .vvip-badge {
+            position: absolute;
+            top: 10px; right: 10px;
+            color: var(--red-main);
+            font-size: 1rem;
+        }
+
+        footer {
+            margin-top: 60px;
+            text-align: center;
+            font-size: 0.7rem;
+            color: #555;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 600px) {
+            .package-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header-shop">
+            <span class="badge-premium">PREMIUM BOT ACCESS</span>
+            <h1>XDOO-HOSTING</h1>
+            <div class="header-underline"></div>
+            <p style="font-size: 0.8rem; color: #888;">WhatsApp Jaga Grup Bot High Performance & Stabil</p>
+        </header>
+
+        <div class="package-grid">
+            <div class="package-card">
+                <h3>TRIAL ACCESS</h3>
+                <div class="price-tag">Rp3.000</div>
+                <div class="mini-features">
+                    <div class="feat-box"><i class="fa-solid fa-clock"></i> 1 Minggu</div>
+                    <div class="feat-box"><i class="fa-solid fa-bolt"></i> Fast</div>
+                    <div class="feat-box"><i class="fa-solid fa-robot"></i> Smart AI</div>
+                    <div class="feat-box"><i class="fa-solid fa-shield"></i> Secure</div>
+                </div>
+                <a href="https://wa.me/6283872707134?text=Order+Sewa+Bot+Trial" class="buy-btn">Beli Sekarang</a>
+            </div>
+
+            <div class="package-card">
+                <h3>STANDARD</h3>
+                <div class="price-tag">Rp5.000</div>
+                <div class="mini-features">
+                    <div class="feat-box"><i class="fa-solid fa-calendar"></i> 1 Bulan</div>
+                    <div class="feat-box"><i class="fa-solid fa-image"></i> Sticker</div>
+                    <div class="feat-box"><i class="fa-solid fa-list-check"></i> All Menu</div>
+                    <div class="feat-box"><i class="fa-solid fa-headset"></i> Support</div>
+                </div>
+                <a href="https://wa.me/6283872707134?text=Order+Sewa+Bot+Standard" class="buy-btn">Beli Sekarang</a>
+            </div>
+
+            <div class="package-card vvip-card">
+                <h3>PREMIUM</h3>
+                <div class="price-tag">Rp8.000</div>
+                <div class="mini-features">
+                    <div class="feat-box"><i class="fa-solid fa-calendar-check"></i> 1 Bulan</div>
+                    <div class="feat-box"><i class="fa-solid fa-user-plus"></i> +1 Prem</div>
+                    <div class="feat-box"><i class="fa-solid fa-gem"></i> Premium</div>
+                    <div class="feat-box"><i class="fa-solid fa-gauge-high"></i> No Delay</div>
+                </div>
+                <a href="https://wa.me/6283872707134?text=Order+Sewa+Bot+Premium" class="buy-btn">Beli Sekarang</a>
+            </div>
+
+            <div class="package-card vvip-card">
+                <i class="fa-solid fa-crown vvip-badge"></i>
+                <h3>VVIP ACCESS</h3>
+                <div class="price-tag">Rp10.000</div>
+                <div class="mini-features">
+                    <div class="feat-box"><i class="fa-solid fa-infinity"></i> 1 Bulan</div>
+                    <div class="feat-box"><i class="fa-solid fa-users"></i> +3 Prem</div>
+                    <div class="feat-box"><i class="fa-solid fa-star"></i> Priority</div>
+                    <div class="feat-box"><i class="fa-solid fa-rocket"></i> Max Limit</div>
+                </div>
+                <a href="https://wa.me/6283872707134?text=Order+Sewa+Bot+VVIP" class="buy-btn">Beli Sekarang</a>
+            </div>
+        </div>
+
+        <footer>
+            MADE BY XDOO-HOSTING ©️ 2026<br>
+            METODE PEMBAYARAN: DANA • GOPAY • QRIS
+        </footer>
+    </div>
+</body>
+</html>

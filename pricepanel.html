@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pilih Paket Panel - XDOO-Hosting</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+
+        :root {
+            --red-main: #ff0000;
+            --red-dark: #8b0000;
+            --glass-bg: rgba(20, 20, 20, 0.6);
+            --glass-border: rgba(255, 0, 0, 0.15);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: #050505;
+            background-image: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('backgroundxdoo.png');
+            background-size: cover;
+            background-attachment: fixed;
+            color: #ccc;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            width: 95%;
+            max-width: 1100px;
+            padding: 40px 0;
+        }
+
+        .header-shop {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header-shop h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.6rem;
+            color: #fff;
+            letter-spacing: 3px;
+            border-bottom: 2px solid var(--red-main);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .package-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .package-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 20px;
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .package-card:hover {
+            border-color: var(--red-main);
+            background: rgba(30, 0, 0, 0.4);
+            transform: translateY(-5px);
+        }
+
+        .package-card h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            margin: 0;
+            color: #fff;
+        }
+
+        .price-tag {
+            color: var(--red-main);
+            font-weight: bold;
+            font-size: 1.3rem;
+            margin: 10px 0;
+        }
+
+        .specs {
+            font-size: 0.75rem;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .specs p {
+            margin: 6px 0;
+            display: flex;
+            align-items: center;
+            color: #aaa;
+        }
+
+        .specs i {
+            color: var(--red-main);
+            margin-right: 10px;
+            width: 14px;
+        }
+
+        /* Tombol Beli Sekarang Seragam */
+        .buy-btn {
+            background: var(--red-dark);
+            border: none;
+            color: #fff;
+            text-decoration: none;
+            text-align: center;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .buy-btn:hover {
+            background: var(--red-main);
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+        }
+
+        .special-card {
+            border: 1px solid rgba(255, 0, 0, 0.4);
+            background: rgba(255, 0, 0, 0.05);
+        }
+
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 0.7rem;
+            color: #444;
+        }
+
+        @media (max-width: 600px) {
+            .package-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+            .specs { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header-shop">
+            <i class="fa-solid fa-server" style="color: var(--red-main); font-size: 2rem;"></i>
+            <br>
+            <h1>PILIH PAKET PANEL</h1>
+        </header>
+
+        <div class="package-grid">
+            <script>
+                // Daftar paket otomatis (RAM 1GB - 9GB)
+                const packages = [
+                    {n: "1GB", p: "1.000", c: "40%"}, {n: "2GB", p: "2.000", c: "80%"},
+                    {n: "3GB", p: "3.000", c: "120%"}, {n: "4GB", p: "4.000", c: "160%"},
+                    {n: "5GB", p: "5.000", c: "200%"}, {n: "6GB", p: "6.000", c: "240%"},
+                    {n: "7GB", p: "7.000", c: "280%"}, {n: "8GB", p: "8.000", c: "290%"},
+                    {n: "9GB", p: "9.000", c: "320%"}
+                ];
+
+                document.write(packages.map(pkg => `
+                    <div class="package-card">
+                        <h3>PANEL RAM ${pkg.n}</h3>
+                        <div class="price-tag">Rp${pkg.p}</div>
+                        <div class="specs">
+                            <p><i class="fa-solid fa-memory"></i> ${pkg.n} RAM</p>
+                            <p><i class="fa-solid fa-microchip"></i> ${pkg.c} CPU</p>
+                            <p><i class="fa-solid fa-bolt"></i> Fast Speed</p>
+                        </div>
+                        <a href="https://wa.me/6283872707134?text=Halo+Admin,+Saya+ingin+order+Panel+RAM+${pkg.n}" class="buy-btn">Beli Sekarang</a>
+                    </div>
+                `).join(''));
+            </script>
+
+            <div class="package-card special-card">
+                <h3>PANEL RAM UNLI</h3>
+                <div class="price-tag">Rp10.000</div>
+                <div class="specs">
+                    <p><i class="fa-solid fa-infinity"></i> Unlimited RAM</p>
+                    <p><i class="fa-solid fa-microchip"></i> Unlimited CPU</p>
+                    <p><i class="fa-solid fa-crown"></i> High Priority</p>
+                </div>
+                <a href="https://wa.me/6283872707134?text=Halo+Admin,+Saya+ingin+order+Panel+RAM+UNLI" class="buy-btn">Beli Sekarang</a>
+            </div>
+
+            <div class="package-card special-card">
+                <h3>RESELLER PANEL</h3>
+                <div class="price-tag">Rp15.000</div>
+                <div class="specs">
+                    <p><i class="fa-solid fa-users"></i> Create User</p>
+                    <p><i class="fa-solid fa-layer-group"></i> Create Panel</p>
+                    <p><i class="fa-solid fa-check-double"></i> All Features</p>
+                </div>
+                <a href="https://wa.me/6283872707134?text=Halo+Admin,+Saya+ingin+order+Reseller+Panel" class="buy-btn">Beli Sekarang</a>
+            </div>
+
+            <div class="package-card special-card">
+                <h3>ADMIN PANEL</h3>
+                <div class="price-tag">Rp25.000</div>
+                <div class="specs">
+                    <p><i class="fa-solid fa-user-shield"></i> Full Access</p>
+                    <p><i class="fa-solid fa-screwdriver-wrench"></i> Manage All</p>
+                    <p><i class="fa-solid fa-star"></i> Owner Perks</p>
+                </div>
+                <a href="https://wa.me/6283872707134?text=Halo+Admin,+Saya+ingin+order+Admin+Panel" class="buy-btn">Beli Sekarang</a>
+            </div>
+        </div>
+
+        <footer>
+            XDOO-HOSTING ©️ 2026 • TERPERCAYA & MURAH
+        </footer>
+    </div>
+</body>
+</html>

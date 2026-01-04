@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Script Free - XDOO-HOSTING</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+
+        :root {
+            --red-neon: #ff3333;
+            --red-glow: rgba(255, 0, 0, 0.5);
+            --glass: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 0, 0, 0.2);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: #050505;
+            background-image: url('backgroundxdoo.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            overflow-x: hidden;
+        }
+
+        .bg-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at center, rgba(0,0,0,0.7) 0%, #050505 100%);
+            z-index: 1;
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 450px;
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        .header-shop {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            padding: 15px;
+            border-radius: 18px;
+            margin: 0 20px 20px 20px;
+            box-shadow: 0 0 10px var(--red-glow);
+        }
+
+        .header-shop h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            color: var(--red-neon);
+            text-shadow: 0 0 8px var(--red-neon);
+            margin: 5px 0 0;
+        }
+
+        .package-list {
+            display: flex;
+            flex-direction: row;
+            gap: 12px;
+            overflow-x: auto;
+            padding: 5px 20px 25px;
+            scroll-snap-type: x mandatory; 
+            scrollbar-width: none; 
+        }
+
+        .package-list::-webkit-scrollbar { display: none; }
+
+        .free-card {
+            background: rgba(15, 15, 15, 0.85);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            border-radius: 18px;
+            padding: 15px;
+            text-align: left;
+            min-width: 280px;
+            height: auto; 
+            display: flex;
+            flex-direction: column;
+            scroll-snap-align: center;
+        }
+
+        .sc-image {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            border: 1px solid var(--glass-border);
+        }
+
+        .tag {
+            font-size: 0.55rem;
+            color: var(--red-neon);
+            background: rgba(255, 0, 0, 0.1);
+            padding: 3px 8px;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: inline-block;
+        }
+
+        .free-card h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.95rem;
+            margin: 0;
+            color: #fff;
+        }
+
+        .free-card p {
+            font-size: 0.68rem;
+            color: #aaa;
+            margin: 5px 0 10px 0;
+            line-height: 1.3;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-bottom: 15px;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 12px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .feature-item {
+            font-size: 0.72rem;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .feature-item i {
+            color: #ff0000;
+            text-shadow: 0 0 8px #ff0000;
+            font-size: 0.8rem;
+            width: 14px;
+            text-align: center;
+        }
+
+        .buy-btn {
+            background: linear-gradient(to right, #8b0000, #ff0000);
+            color: #fff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 10px;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 0.75rem;
+            margin-top: auto;
+            box-shadow: 0 4px 10px rgba(255, 0, 0, 0.2);
+            transition: 0.2s;
+        }
+
+        .buy-btn:active { transform: scale(0.98); }
+
+        .scroll-hint {
+            font-size: 0.6rem;
+            color: #666;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        footer { font-size: 0.65rem; color: #333; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <div class="bg-overlay"></div>
+    <div class="container">
+        
+        <header class="header-shop">
+            <i class="fa-solid fa-fire-flame-curved" style="color: var(--red-neon); font-size: 1.5rem;"></i>
+            <h1>XDOO-HOSTING</h1>
+        </header>
+
+        <div class="scroll-hint">
+            <i class="fa-solid fa-angles-left"></i> Geser Produk <i class="fa-solid fa-angles-right"></i>
+        </div>
+
+        <div class="package-list">
+            
+            <div class="free-card">
+                <img src="https://img1.pixhost.to/images/11343/679009920_alip-1767389811176.jpg" class="sc-image">
+                <span class="tag">LEGACY VERSION</span>
+                <h3>XDOO-MD V8</h3>
+                <p>Script legendaris yang sangat ringan dan stabil untuk grup WhatsApp Anda, Memiliki 1500+ Fitur.</p>
+                
+                <div class="feature-grid">
+                    <div class="feature-item"><i class="fa-solid fa-wrench"></i> Menu Tools</div>
+                    <div class="feature-item"><i class="fa-solid fa-arrows-rotate"></i> Menu Convert</div>
+                    <div class="feature-item"><i class="fa-solid fa-download"></i> Menu Download</div>
+                    <div class="feature-item"><i class="fa-solid fa-users-gear"></i> Menu Group</div>
+                    <div class="feature-item"><i class="fa-solid fa-user-shield"></i> Menu Owner</div>
+                    <div class="feature-item"><i class="fa-solid fa-microchip"></i> Menu System</div>
+                </div>
+                <a href="https://wa.me/6283872707134?text=Order+SC XDOO-MD" target="_blank" class="buy-btn"><i class="fa-solid fa-cloud-arrow-down"></i> BUY SCRIPT</a>
+            </div>
+
+            <div class="free-card">
+                <img src="https://files.catbox.moe/lemaq1.jpg" class="sc-image">
+                <span class="tag">HOT SCRIPT</span>
+                <h3>XDOO X Hoshino Assistent</h3>
+                <p>Script dengan 2000+ fitur work dan sistem AI canggih untuk automasi masa kini.</p>
+                
+                <div class="feature-grid">
+                    <div class="feature-item"><i class="fa-solid fa-robot"></i> Open AI</div>
+                    <div class="feature-item"><i class="fa-solid fa-shield-cat"></i> Jaga Grup</div>
+                    <div class="feature-item"><i class="fa-solid fa-note-sticky"></i> Brat Stick</div>
+                    <div class="feature-item"><i class="fa-solid fa-server"></i> Create Panel</div>
+                    <div class="feature-item"><i class="fa-solid fa-gamepad"></i> Game Menu</div>
+                    <div class="feature-item"><i class="fa-solid fa-wand-magic-sparkles"></i> 1000+ Fitur</div>
+                </div>
+                <a href="https://wa.me/6283872707134?text=Order+SC XDOO X Hoshino-MD" target="_blank" class="buy-btn"><i class="fa-solid fa-bolt"></i> BUY SCRIPT</a>
+            </div>
+
+            <div class="free-card">
+                <img src="https://files.catbox.moe/86dur0.jpg" class="sc-image">
+                <span class="tag">NEW SCRIPT</span>
+                <h3>XDOO PROJECT</h3>
+                <p>Edisi terbaru dengan efisiensi tampilan dan sistem auto-pairing tanpa scan memiliki ribuan fitur.</p>
+                
+                <div class="feature-grid">
+                    <div class="feature-item"><i class="fa-solid fa-bolt-lightning"></i> Fast Response</div>
+                    <div class="feature-item"><i class="fa-solid fa-box-archive"></i> Case Simpel</div>
+                    <div class="feature-item"><i class="fa-solid fa-code-merge"></i> Auto Pairing</div>
+                    <div class="feature-item"><i class="fa-solid fa-mask"></i> Button Menu</div>
+                    <div class="feature-item"><i class="fa-solid fa-layer-group"></i> Multi Device</div>
+                    <div class="feature-item"><i class="fa-solid fa-gem"></i> Premium UI</div>
+                </div>
+                <a href="https://wa.me/6283872707134?text=Order+SC XDOO PROJECT" target="_blank" class="buy-btn" style="background: linear-gradient(to right, #440000, #b30000);"><i class="fa-solid fa-unlock-keyhole"></i> BUY SCRIPT</a>
+            </div>
+              
+
+        </div>
+
+        <footer>XDOO-HOSTING ©️ 2025</footer>
+    </div>
+</body>
+</html>

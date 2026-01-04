@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>XDOO OTORISASI KEAMANAN</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@400;600;700&display=swap');
+
+        :root {
+            --red-primary: #ff0000;
+            --red-glow: rgba(255, 0, 0, 0.4);
+            --bg-dark: #020202;
+            --card-bg: rgba(10, 10, 12, 0.95);
+            --accent-border: rgba(255, 0, 0, 0.3);
+        }
+
+        * {
+            margin: 0; padding: 0; box-sizing: border-box;
+            user-select: none; -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            font-family: 'Inter', sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            /* Efek latar belakang radar/grid */
+            background-image: 
+                radial-gradient(circle at center, #1a0505 0%, #000 100%),
+                linear-gradient(rgba(255, 0, 0, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 0, 0, 0.05) 1px, transparent 1px);
+            background-size: 100% 100%, 40px 40px, 40px 40px;
+        }
+
+        .container-panel {
+            width: 92%;
+            max-width: 385px;
+            background: var(--card-bg);
+            border: 1px solid var(--accent-border);
+            border-radius: 24px;
+            padding: 35px 20px;
+            box-shadow: 0 0 50px rgba(0,0,0,1), 0 0 20px var(--red-glow);
+            text-align: center;
+            position: relative;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Dekorasi sudut futuristik */
+        .container-panel::before {
+            content: "";
+            position: absolute;
+            top: 10px; left: 10px;
+            width: 20px; height: 20px;
+            border-top: 2px solid var(--red-primary);
+            border-left: 2px solid var(--red-primary);
+            border-radius: 4px 0 0 0;
+        }
+
+        .header-box { margin-bottom: 30px; }
+
+        .header-box i {
+            font-size: 3.5rem;
+            color: var(--red-primary);
+            filter: drop-shadow(0 0 15px var(--red-primary));
+            margin-bottom: 15px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.8; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            letter-spacing: 3px;
+            color: #fff;
+            text-transform: uppercase;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+        }
+
+        .system-desc {
+            font-size: 0.7rem;
+            color: #999;
+            margin-top: 8px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+
+        .grid-protocol {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .protocol-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 22px 5px;
+            border-radius: 16px;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .protocol-item i { font-size: 1.3rem; color: #fff; opacity: 0.6; }
+
+        .protocol-item span {
+            font-size: 0.65rem;
+            font-weight: 700;
+            color: #888;
+            text-transform: uppercase;
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+
+        .protocol-item:hover {
+            border-color: var(--red-primary);
+            background: rgba(255, 0, 0, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .protocol-item:hover i { opacity: 1; color: var(--red-primary); }
+
+        .protocol-item.verified {
+            border-color: #00ffa3;
+            background: rgba(0, 255, 163, 0.05);
+            box-shadow: inset 0 0 10px rgba(0, 255, 163, 0.1);
+        }
+
+        .protocol-item.verified i, .protocol-item.verified span {
+            color: #00ffa3;
+            opacity: 1;
+        }
+
+        #btnDownload {
+            width: 100%;
+            padding: 18px;
+            background: #151515;
+            color: #444;
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 12px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-decoration: none;
+            display: block;
+            pointer-events: none;
+            transition: all 0.4s ease;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        #btnDownload.active {
+            background: var(--red-primary);
+            color: #fff;
+            pointer-events: auto;
+            box-shadow: 0 5px 25px var(--red-glow);
+            border: none;
+            transform: scale(1.02);
+        }
+
+        footer {
+            margin-top: 25px;
+            font-size: 0.55rem;
+            color: #555;
+            letter-spacing: 4px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 400;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container-panel">
+    <div class="header-box">
+        <i class="fa-solid fa-shield-halved" id="mainIcon"></i>
+        <h2>VERIFIKASI SISTEM</h2>
+        <p class="system-desc" id="statusLabel">Akses Terbatas: Selesaikan Protokol</p>
+    </div>
+
+    <div class="grid-protocol">
+        <a href="https://youtube.com/@xdoo-hosting01" target="_blank" class="protocol-item" onclick="verify(0)">
+            <i class="fa-brands fa-youtube"></i>
+            <span>Subscribe</span>
+        </a>
+        <a href="https://youtu.be/kfYYzt2KxsM?si=Cg9PiJzCDDY74A14" target="_blank" class="protocol-item" onclick="verify(1)">
+            <i class="fa-solid fa-thumbs-up"></i>
+            <span>Like Video</span>
+        </a>
+        <a href="https://youtu.be/kfYYzt2KxsM?si=Cg9PiJzCDDY74A14" target="_blank" class="protocol-item" onclick="verify(2)">
+            <i class="fa-solid fa-message"></i>
+            <span>Komentar</span>
+        </a>
+        <a href="https://www.tiktok.com/@sewabot1" target="_blank" class="protocol-item" onclick="verify(3)">
+            <i class="fa-brands fa-tiktok"></i>
+            <span>Ikuti TikTok</span>
+        </a>
+        <a href="https://whatsapp.com/channel/0029Vb6m6X29Gv7W4NNcil3l" target="_blank" class="protocol-item" onclick="verify(4)">
+            <i class="fa-solid fa-tower-broadcast"></i>
+            <span>Ikuti Saluran WA</span>
+        </a>
+        <a href="https://chat.whatsapp.com/BGBiDGwMDkCIii3UtaiSKf" target="_blank" class="protocol-item" onclick="verify(5)">
+            <i class="fa-solid fa-users-gear"></i>
+            <span>Join Grup</span>
+        </a>
+    </div>
+
+    <a href="https://www.mediafire.com/file/v1wascuizo1by85/Marin+Kitagawa+MD+V1.0.zip/file" id="btnDownload">AKSES TERKUNCI</a>
+
+    <footer>XDOO SECURITY INTERFACE</footer>
+</div>
+
+<script>
+    let modules = new Array(6).fill(false);
+
+    function verify(i) {
+        if (!modules[i]) {
+            modules[i] = true;
+            const cards = document.getElementsByClassName('protocol-item');
+            const icons = document.querySelectorAll('.protocol-item i');
+            
+            cards[i].classList.add('verified');
+            icons[i].className = "fa-solid fa-circle-check";
+
+            const isAllClear = modules.every(v => v === true);
+            if (isAllClear) {
+                const btn = document.getElementById('btnDownload');
+                const label = document.getElementById('statusLabel');
+                const icon = document.getElementById('mainIcon');
+                
+                btn.classList.add('active');
+                btn.innerHTML = '<i class="fa-solid fa-download"></i> UNDUH SCRIPT';
+                
+                label.innerHTML = "Status: Otorisasi Berhasil";
+                label.style.color = "#00ffa3";
+
+                icon.className = "fa-solid fa-shield-check";
+                icon.style.color = "#00ffa3";
+                icon.style.filter = "drop-shadow(0 0 10px #00ffa3)";
+            }
+        }
+    }
+</script>
+
+</body>
+</html>
